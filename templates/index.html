@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio Summary
+{% endblock %}
+
+{% block main %}
+<div>
+    <div>
+        <div>
+        <h1>Performance Statistics:</h1>
+        <h3>Total value created : {{ tvalue | usd }} </h3>
+        <h3>MOIC : {{ moic }}</h3>
+        <h3>IRR : {{ irr }}</h3>
+        <p></p>
+        </div>
+        <div>
+        <h1>Relative Performace Statistics:</h1>
+        <h3>KS - PME: {{ pme }}</h3>
+        <h3>Direct Alpha: {{ da }}</h3>
+        </div>
+        <div>
+        <table class="table">
+            <h1>Current Holdings</h1>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Value</th>
+            </tr>
+            {% for holding in stocks %}
+            <tr>
+                <td>{{ holding.symbol }}</td>
+                <td>{{ holding.price | usd }}</td>
+                <td>{{ holding.quantity_o }}</td>
+                <td>{{ holding.value | usd }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <h3>You have {{ s_value | usd }} of stocks</h3>
+        <p></p>
+    </div>
+    </div>
+    <div>
+    <h4>KS - PME method:</h4>
+    <footer class="mb-5 small text-center text-muted"><a href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1540-6261.2005.00780.x">Steven Kaplan and Antoinette Schoar (2005)</a></footer>
+    <h4>Direct Alpha Method:</h4>
+    <footer class="mb-5 small text-center text-muted"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2403521">Gredil, Griffiths, and Stucke (2014)</a></footer>
+</div>
+</div>
+{% endblock %}

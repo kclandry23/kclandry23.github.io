@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add Transaction
+{% endblock %}
+
+{% block main %}
+<h1>Buy Transactions</h1>
+    <form action="/transactions" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" id="shares" name="shares" placeholder="Shares" type="int">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" id="price" name="price" placeholder="Share Price" type="int">
+        </div class="mb-3">
+        <input type="date" id="date" name="date"
+        value="{{ today }}" min="2008-01-01" max= "{{ today }}">
+        </div>
+        <p></p>
+        <button class="btn btn-primary" type="submit">Record Buy Transaction</button>
+    </form>
+    <p></p>
+    <p></p>
+<h1>Sell Transacitons</h1>
+    <form action="/stransactions" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" id="symbol" name="symbol" placeholder="Symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" id="shares" name="shares" placeholder="Shares" type="int">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" id="price" name="price" placeholder="Share Price" type="int">
+        </div class="mb-3">
+        <input type="date" id="date" name="date"
+        value="{{ today }}" min="2008-01-01" max= "{{ today }}">
+        </div>
+        <p></p>
+        <button class="btn btn-primary" type="submit">Record Sell Transaction</button>
+    </form>
+{% endblock %}
